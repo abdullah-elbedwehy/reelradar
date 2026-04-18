@@ -1,0 +1,76 @@
+{
+  "manifest_version": 3,
+  "name": "ReelRadar",
+  "description": "Explore and sort Instagram Reels and TikToks by views, likes, comments, shares, and more — open source.",
+  "version": "9.53",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "declarativeNetRequest",
+    "webNavigation",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://www.tiktok.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "Icons/16 ReelRadar.png",
+      "48": "Icons/48 ReelRadar.png",
+      "128": "Icons/128-ReelRadar.png"
+    }
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "tiktok_interceptor",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "icons": {
+    "16": "Icons/16 ReelRadar.png",
+    "48": "Icons/48 ReelRadar.png",
+    "128": "Icons/128-ReelRadar.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "css": ["Animate/animate.css"],
+      "js": ["lib/xlsx.full.min.js", "Instagram/content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.tiktok.com/*"],
+      "css": ["Animate/animate.css"],
+      "js": ["lib/xlsx.full.min.js", "Tiktok/content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "Icons/reelradar-logo.svg",
+        "Icons/16 ReelRadar.png",
+        "Icons/48 ReelRadar.png",
+        "Icons/128-ReelRadar.png",
+        "Icons/BannerIconNew/*.svg",
+        "Icons/BannerIcons/*.png",
+        "Icons/ButtonIcons/*.svg",
+        "Icons/Hover/*.png",
+        "Icons/StopIcon.png",
+        "Icons/ZeroStateIcons/*",
+        "Instagram/script_instagram.js",
+        "Tiktok/script_tiktok.js"
+      ],
+      "matches": ["https://www.instagram.com/*", "https://www.tiktok.com/*"]
+    }
+  ]
+}

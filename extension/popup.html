@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en" data-theme="reel-radar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReelRadar</title>
+    <link rel="stylesheet" type="text/css" href="Animate/animate.css" />
+    <link rel="stylesheet" href="popup_styles/popup_subs.css" />
+    <link rel="stylesheet" href="popup_styles/popup.css" />
+    <link rel="preload" as="image" href="Icons/reelradar-logo.svg" />
+  </head>
+  <body>
+    <div class="main_div animate__animated animate__zoomIn">
+      <div class="chrome">
+        <div class="header sf-fade-header">
+          <div class="rr-header-brand">
+            <img
+              id="rr_logo"
+              class="rr-logo-img animate__animated animate__bounceInDown"
+              src="Icons/reelradar-logo.svg"
+              alt="ReelRadar logo"
+              width="24"
+              height="24"
+            />
+            <h1 class="rr-wordmark">Reel<span>Radar</span></h1>
+          </div>
+          <span class="beta rr-badge">v1.0</span>
+        </div>
+
+        <!-- Feature banner notification (GLOBAL) -->
+        <div class="footer_div_again_sub_feature rr-banner-feature">
+          <div class="footer_text_with_icon">
+            <!-- NEW: icon instead of ✨ -->
+            <img
+              src="Icons/startsIcon.png"
+              class="sf_banner__partyIcon__v1"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <p class="footer_text_again_subheader_sub_bottom rr-banner-body">
+              Click Select after sorting to export the items you want
+            </p>
+
+            <img
+              src="Icons/close_banner.png"
+              class="close_banner_icon"
+              alt="Close"
+            />
+          </div>
+        </div>
+        <!-- Feature banner notification (END) -->
+
+        <div class="nav_buttons">
+          <div class="main_nav_div_parent">
+            <!-- Zero state -->
+            <div class="main_nav_div_zero_state sf-fade-content">
+              <label
+                style="
+                  font-weight: 400;
+                  font-size: 13px;
+                  color: black;
+                  padding-left: 15px;
+                "
+              >
+                Choose a feed
+              </label>
+
+              <div style="padding: 10px 15px 0 15px">
+                <div>
+                  <button id="instaButton" class="zeroStateButtonMain">
+                    <div>
+                      <img
+                        src="Icons/ZeroStateIcons/Insta.svg"
+                        style="width: 10px; margin-right: 10px"
+                      />
+                      Instagram
+                    </div>
+                    <img
+                      src="Icons/ZeroStateIcons/arrow.svg"
+                      style="width: 5px"
+                    />
+                  </button>
+
+                  <button id="tiktokButton" class="zeroStateButtonMain">
+                    <div>
+                      <img
+                        src="Icons/ZeroStateIcons/tiktok.svg"
+                        style="width: 10px; margin-right: 10px"
+                      />
+                      TikTok
+                    </div>
+                    <img
+                      src="Icons/ZeroStateIcons/arrow.svg"
+                      style="width: 5px"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add License Key Page -->
+            <div class="main_nav_div_zero_state_sub">
+              <span class="beta back-btn" id="BackFromLicensePage">
+                <!-- <img src="Icons/ZeroStateIcons/arrowLeft.svg" class="back-ic" alt=""> -->
+                <img src="Icons/BackAgain.png" class="back-ic" alt="" />
+                Back
+              </span>
+
+              <!-- <label style="font-weight: 400; font-size: 12px; color: black; padding-left: 15px;">
+              Let's activiate Pro
+            </label> -->
+
+              <div style="padding: 8px 15px 0 15px">
+                <div>
+                  <div class="input-container_sub">
+                    <!-- <span class="input-icon_sub">🔑</span> -->
+                    <img
+                      src="Icons/ZeroStateIcons/keyLogo.svg"
+                      class="input-icon_sub"
+                    />
+
+                    <input
+                      type="text"
+                      placeholder="Enter license Key"
+                      class="license-input_sub"
+                    />
+                  </div>
+                  <label class="license_key_message"
+                    >license key gets emailed after purchase</label
+                  >
+
+                  <button id="activiatePro" class="activate_pro_button">
+                    <div>
+                      <img
+                        class="activeProImg"
+                        src="Icons/ZeroStateIcons/black_star.svg"
+                        style="width: 10px; margin-right: 5px"
+                      />
+                      <!-- <img src="Icons/ZeroStateIcons/loading.png" style="width: 10px; margin-right: 5px;" /> -->
+                      Activate Pro
+                    </div>
+                  </button>
+
+                  <!-- <span class="BackFromLicense" id="BackFromLicensePage">
+                  <img src="Icons/ZeroStateIcons/arrowLeft.svg" style="width: 8px;" />
+                  Back
+                </span>           -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Instagram Sort by date vs items -->
+            <div class="InstaMain sf-fade-content">
+              <!-- Top nav: Sort vs Download -->
+              <div class="sf-mode-ctrl-wrap">
+                <div class="segmented-control sf-mode-ctrl">
+                  <button class="itemButtonClass" id="igSortTab">
+                    <img
+                      src="Icons/popupIcons/sortPopup.svg"
+                      class="sf-tab-icon"
+                    />
+                    Sort
+                  </button>
+                  <button class="dateRangeButtonClass" id="igDownloadTab">
+                    <img src="Icons/downloadCompact.svg" class="sf-tab-icon" />
+                    Download
+                  </button>
+                </div>
+              </div>
+
+              <!-- Sort panel -->
+              <div
+                id="igSortContent"
+                style="display: flex; flex-direction: column; width: 100%"
+              >
+                <div class="insta_tiktok_menus" style="padding: 0 15px 10px">
+                  <!-- Single unified box -->
+                  <div
+                    id="insta_sort_menu"
+                    class="buttonMainDiv sf-sort-unified"
+                  >
+                    <!-- Filter by section -->
+                    <div class="sf-sort-inner-section">
+                      <span class="sf-section-label">Filters</span>
+                      <div class="segmented-control sf-sort-seg">
+                        <button class="itemButtonClass" id="itemButton">
+                          <img
+                            src="Icons/popupIcons/postsPopup.svg"
+                            class="sf-tab-icon"
+                          />
+                          Posts
+                        </button>
+                        <button
+                          class="dateRangeButtonClass"
+                          id="dateRangeButton"
+                        >
+                          <img
+                            src="Icons/popupIcons/calenderPopup.svg"
+                            class="sf-tab-icon"
+                          />
+                          Date
+                        </button>
+                      </div>
+                      <div class="sf-sort-dd-row">
+                        <!-- Hidden selects — JS reads .value / active attr from these -->
+                        <select
+                          class="sf-hidden-select"
+                          id="no_reels_selected"
+                          active="on"
+                        >
+                          <option value="25_reels" selected>
+                            Latest 25 Posts
+                          </option>
+                          <option value="50_reels">Latest 50 Posts</option>
+                          <option value="100_reels">Latest 100 Posts</option>
+                          <option value="200_reels">Latest 200 Posts</option>
+                          <option value="500_reels">Latest 500 Posts</option>
+                          <option value="1000_reels">Latest 1K Posts</option>
+                          <option value="2000_reels">Latest 2K Posts</option>
+                          <option value="all_reels">All Posts</option>
+                        </select>
+                        <select
+                          class="sf-hidden-select"
+                          id="dates_selected"
+                          active="off"
+                        >
+                          <option value="1_week" selected>
+                            Posts from 1 Week Back
+                          </option>
+                          <option value="1_month">
+                            Posts from 1 Month Back
+                          </option>
+                          <option value="3_month">
+                            Posts from 3 Months Back
+                          </option>
+                          <option value="6_month">
+                            Posts from 6 Months Back
+                          </option>
+                          <option value="1_year">Posts from 1 Year Back</option>
+                          <option value="all_reels">All Items</option>
+                        </select>
+
+                        <!-- Custom dropdown: IG items -->
+                        <div class="sf-dd" id="sf-dd-ig-items">
+                          <button class="sf-dd-trigger" type="button">
+                            <span class="sf-dd-label">Latest 25 Posts</span>
+                            <img
+                              src="Icons/ButtonIcons/DownGrey.svg"
+                              class="sf-dd-arrow"
+                            />
+                          </button>
+                          <div class="sf-dd-menu" aria-hidden="true">
+                            <div
+                              class="sf-dd-opt sf-dd-selected"
+                              data-value="25_reels"
+                            >
+                              Latest 25 Posts
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="50_reels"
+                            >
+                              <span>Latest 50 Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="100_reels"
+                            >
+                              <span>Latest 100 Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="200_reels"
+                            >
+                              <span>Latest 200 Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="500_reels"
+                            >
+                              <span>Latest 500 Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="1000_reels"
+                            >
+                              <span>Latest 1K Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="2000_reels"
+                            >
+                              <span>Latest 2K Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="all_reels"
+                            >
+                              <span>All Posts</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Custom dropdown: IG dates -->
+                        <div class="sf-dd" id="sf-dd-ig-dates">
+                          <button class="sf-dd-trigger" type="button">
+                            <span class="sf-dd-label"
+                              >Posts from 1 Week Back</span
+                            >
+                            <img
+                              src="Icons/ButtonIcons/DownGrey.svg"
+                              class="sf-dd-arrow"
+                            />
+                          </button>
+                          <div class="sf-dd-menu" aria-hidden="true">
+                            <div
+                              class="sf-dd-opt sf-dd-selected"
+                              data-value="1_week"
+                            >
+                              Posts from 1 Week Back
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="1_month"
+                            >
+                              <span>Posts from 1 Month Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="3_month"
+                            >
+                              <span>Posts from 3 Months Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="6_month"
+                            >
+                              <span>Posts from 6 Months Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="1_year"
+                            >
+                              <span>Posts from 1 Year Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="all_reels"
+                            >
+                              <span>All Items</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Divider between sections -->
+
+                    <!-- Sort by section -->
+                    <div
+                      class="sf-sort-inner-section sf-sort-inner-section--sort"
+                    >
+                      <span class="sf-section-label">Sort</span>
+                      <div class="sf-sort-card">
+                        <button id="sortLikesClick" class="SortButtonMain">
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/LoveGrey.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Likes</span>
+                          </div>
+                        </button>
+
+                        <button id="sortViewsClick" class="SortButtonMain">
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/play.svg"
+                              style="width: 9px; margin-right: 12px"
+                            />
+                            <span>Views</span>
+                          </div>
+                        </button>
+
+                        <button id="sortCommentsClick" class="SortButtonMain">
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/ChatGrey.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Comments</span>
+                          </div>
+                        </button>
+
+                        <button id="sortOldestClicks" class="SortButtonMain">
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/SortFeedOld.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Oldest</span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    <label class="OnlyWorksPosts" id="OnlyWorksPosts"
+                      >Sorting only works on profile pages</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- /igSortContent -->
+
+              <!-- Download panel -->
+              <div
+                id="igDownloadContent"
+                style="flex-direction: column; width: 100%"
+              >
+                <div class="insta_tiktok_menus" style="padding: 0 15px 10px">
+                  <div class="buttonMainDiv sf-sort-unified">
+                    <div class="sf-sort-inner-section">
+                      <span class="sf-section-label">Show</span>
+                      <div class="sf-sort-card">
+                        <div class="sf-dl-row">
+                          <div class="sf-dl-info">
+                            <div class="sf-dl-title">
+                              Download button
+                              <span class="sf-dd-pro-pill">New</span>
+                            </div>
+                          </div>
+                          <label class="sf-toggle">
+                            <input
+                              type="checkbox"
+                              class="sf-toggle-input"
+                              id="igDownloadToggle"
+                              checked
+                            />
+                            <span class="sf-toggle-track"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <label class="sf-dl-blurb"
+                      >Works on profile, search, explore & saved</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /InstaMain -->
+
+            <!-- TIKTOK -->
+            <div class="TikTokMain sf-fade-content">
+              <!-- Top nav: Sort vs Download -->
+              <div class="sf-mode-ctrl-wrap">
+                <div class="segmented-control sf-mode-ctrl">
+                  <button class="itemButtonClassTikTok" id="ttSortTab">
+                    <img
+                      src="Icons/popupIcons/sortPopup.svg"
+                      class="sf-tab-icon"
+                    />
+                    Sort
+                  </button>
+                  <button class="dateRangeButtonClassTikTok" id="ttDownloadTab">
+                    <img src="Icons/downloadCompact.svg" class="sf-tab-icon" />
+                    Download
+                  </button>
+                </div>
+              </div>
+
+              <!-- Sort panel -->
+              <div
+                id="ttSortContent"
+                style="display: flex; flex-direction: column; width: 100%"
+              >
+                <div class="insta_tiktok_menus" style="padding: 0 15px 10px">
+                  <!-- Single unified box -->
+                  <div
+                    id="tiktok_sort_menu"
+                    class="buttonMainDiv sf-sort-unified"
+                  >
+                    <!-- Filter by section -->
+                    <div class="sf-sort-inner-section">
+                      <span class="sf-section-label">Filter</span>
+                      <div class="segmented-control sf-sort-seg">
+                        <button
+                          class="itemButtonClassTikTok"
+                          id="itemButtonTikTok"
+                        >
+                          <img
+                            src="Icons/popupIcons/postsPopup.svg"
+                            class="sf-tab-icon"
+                          />
+                          TikToks
+                        </button>
+                        <button
+                          class="dateRangeButtonClassTikTok"
+                          id="dateRangeButtonTikTok"
+                        >
+                          <img
+                            src="Icons/popupIcons/calenderPopup.svg"
+                            class="sf-tab-icon"
+                          />
+                          Date
+                        </button>
+                      </div>
+                      <div class="sf-sort-dd-row">
+                        <!-- Hidden selects — JS reads .value / active attr from these -->
+                        <select
+                          class="sf-hidden-select"
+                          id="no_reels_selected_tiktok"
+                          active="on"
+                        >
+                          <option value="25_reels" selected>
+                            Latest 25 TikToks
+                          </option>
+                          <option value="50_reels">Latest 50 TikToks</option>
+                          <option value="100_reels">Latest 100 TikToks</option>
+                          <option value="200_reels">Latest 200 TikToks</option>
+                          <option value="500_reels">Latest 500 TikToks</option>
+                          <option value="1000_reels">Latest 1K TikToks</option>
+                          <option value="2000_reels">Latest 2K TikToks</option>
+                          <option value="all_reels">All TikToks</option>
+                        </select>
+                        <select
+                          class="sf-hidden-select"
+                          id="dates_selected_tiktok"
+                          active="off"
+                        >
+                          <option value="1_week" selected>
+                            TikToks from 1 Week Back
+                          </option>
+                          <option value="1_month">
+                            TikToks from 1 Month Back
+                          </option>
+                          <option value="3_month">
+                            TikToks from 3 Months Back
+                          </option>
+                          <option value="6_month">
+                            TikToks from 6 Months Back
+                          </option>
+                          <option value="1_year">
+                            TikToks from 1 Year Back
+                          </option>
+                          <option value="all_reels">All TikToks</option>
+                        </select>
+
+                        <!-- Custom dropdown: TikTok items -->
+                        <div class="sf-dd" id="sf-dd-tt-items">
+                          <button class="sf-dd-trigger" type="button">
+                            <span class="sf-dd-label">Latest 25 TikToks</span>
+                            <img
+                              src="Icons/ButtonIcons/DownGrey.svg"
+                              class="sf-dd-arrow"
+                            />
+                          </button>
+                          <div class="sf-dd-menu" aria-hidden="true">
+                            <div
+                              class="sf-dd-opt sf-dd-selected"
+                              data-value="25_reels"
+                            >
+                              Latest 25 TikToks
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="50_reels"
+                            >
+                              <span>Latest 50 TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="100_reels"
+                            >
+                              <span>Latest 100 TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="200_reels"
+                            >
+                              <span>Latest 200 TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="500_reels"
+                            >
+                              <span>Latest 500 TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="1000_reels"
+                            >
+                              <span>Latest 1K TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="2000_reels"
+                            >
+                              <span>Latest 2K TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="all_reels"
+                            >
+                              <span>All TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Custom dropdown: TikTok dates -->
+                        <div class="sf-dd" id="sf-dd-tt-dates">
+                          <button class="sf-dd-trigger" type="button">
+                            <span class="sf-dd-label"
+                              >TikToks from 1 Week Back</span
+                            >
+                            <img
+                              src="Icons/ButtonIcons/DownGrey.svg"
+                              class="sf-dd-arrow"
+                            />
+                          </button>
+                          <div class="sf-dd-menu" aria-hidden="true">
+                            <div
+                              class="sf-dd-opt sf-dd-selected"
+                              data-value="1_week"
+                            >
+                              TikToks from 1 Week Back
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="1_month"
+                            >
+                              <span>TikToks from 1 Month Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="3_month"
+                            >
+                              <span>TikToks from 3 Months Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="6_month"
+                            >
+                              <span>TikToks from 6 Months Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="1_year"
+                            >
+                              <span>TikToks from 1 Year Back</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                            <div
+                              class="sf-dd-opt sf-dd-locked"
+                              data-value="all_reels"
+                            >
+                              <span>All TikToks</span
+                              ><span class="sf-dd-pro-pill">Pro</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Divider between sections -->
+
+                    <!-- Sort by section -->
+                    <div
+                      class="sf-sort-inner-section sf-sort-inner-section--sort"
+                    >
+                      <span class="sf-section-label">Sort</span>
+                      <div class="sf-sort-card">
+                        <button
+                          id="sortLikesClickTikTok"
+                          class="SortButtonMain"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/LoveGrey.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Likes</span>
+                          </div>
+                        </button>
+
+                        <button
+                          id="sortViewsClickTikTok"
+                          class="SortButtonMain"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/play.svg"
+                              style="width: 9px; margin-right: 12px"
+                            />
+                            <span>Views</span>
+                          </div>
+                        </button>
+
+                        <button
+                          id="sortSharesClickTikTok"
+                          class="SortButtonMain"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/share.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Shares</span>
+                          </div>
+                        </button>
+
+                        <button
+                          id="sortCommentsClickTikTok"
+                          class="SortButtonMain"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/ChatGrey.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Comments</span>
+                          </div>
+                        </button>
+
+                        <button
+                          id="sortSavesClickTikTok"
+                          class="SortButtonMain"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/med_save.svg"
+                              style="width: 9px; margin-right: 12px"
+                            />
+                            <span>Saves</span>
+                          </div>
+                        </button>
+
+                        <button
+                          id="sortOldestClicksTikTok"
+                          class="SortButtonMain"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              width: 100%;
+                              align-items: center;
+                            "
+                          >
+                            <img
+                              src="Icons/ButtonIcons/SortFeedOld.svg"
+                              style="width: 11px; margin-right: 10px"
+                            />
+                            <span>Oldest</span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    <label class="OnlyWorksPosts" id="tiktokItemsWarning"
+                      >Sorting only works on profile pages</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- /ttSortContent -->
+
+              <!-- Download panel -->
+              <div
+                id="ttDownloadContent"
+                style="flex-direction: column; width: 100%"
+              >
+                <div class="insta_tiktok_menus" style="padding: 0 15px 10px">
+                  <div class="buttonMainDiv sf-sort-unified">
+                    <div class="sf-sort-inner-section">
+                      <span class="sf-section-label">Show</span>
+                      <div class="sf-sort-card">
+                        <div class="sf-dl-row">
+                          <div class="sf-dl-info">
+                            <div class="sf-dl-title">
+                              Download button
+                              <span class="sf-dd-pro-pill">New</span>
+                            </div>
+                          </div>
+                          <label class="sf-toggle">
+                            <input
+                              type="checkbox"
+                              class="sf-toggle-input"
+                              id="ttDownloadToggle"
+                              checked
+                            />
+                            <span class="sf-toggle-track"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <label class="sf-dl-blurb"
+                      >Works on profile, search, explore, liked &
+                      favorites</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /TikTokMain -->
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <!-- <div class="footer_div_again" style="display: flex;">
+        <a class="email_button" href="https://discord.gg/NKB9FhAbcm" target="_blank" style="text-decoration: none;">
+          <div class="footer_text_again">
+            <p class="footer_text_again_subheader">
+              Hi, I’m Taher, creator of ReelRadar. Let's connect on <span class="my_name">Discord</span> 🤩
+            </p>
+            <img src="Icons/TaherSolo.svg" class="TaherSolo animate__animated animate__bounceInRight"/>
+          </div>
+        </a>
+      </div> -->
+
+        <!-- SUBS FOOTER -->
+        <div id="subFooter" class="footer_div_again_sub sf-fade-footer">
+          <div class="sub_footer_one">
+            <div class="footer_text_again_sub">
+              <p class="footer_text_again_subheader_sub_bottom_footer">
+                Sort, export, and download directly on Instagram and TikTok.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <script src="popup_scripts/popup.js"></script>
+        <script src="popup_scripts/popup_subs.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,10 +1,10 @@
-const GITHUB_URL = 'https://github.com/your-org/reelradar'
+const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 
 const STEPS = [
   {
     n: '01',
     label: 'Clone the repository',
-    cmd: 'git clone https://github.com/your-org/reelradar.git',
+    cmd: 'git clone https://github.com/abdullah-elbedwehy/reelradar.git',
     lang: 'shell',
     note: "This creates a folder called 'reelradar' in your current directory. Or go to GitHub → click Code → Download ZIP → unzip it.",
   },
@@ -24,10 +24,10 @@ const STEPS = [
   },
   {
     n: '04',
-    label: 'Load the folder',
-    cmd: '→  Click "Load unpacked"  →  select the reelradar folder',
+    label: 'Load the extension folder',
+    cmd: '→  Click "Load unpacked"  →  select the extension folder inside reelradar',
     lang: 'action',
-    note: 'Select the root folder — the one that contains manifest.json directly inside it (not a subfolder). Chrome will install it immediately.',
+    note: 'Select the extension/ subfolder — the one that contains manifest.json directly inside it. Chrome will install it immediately.',
   },
   {
     n: '05',

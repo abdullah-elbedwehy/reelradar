@@ -1,4 +1,4 @@
-const GITHUB_URL = 'https://github.com/your-org/reelradar'
+const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 
 export default function Nav() {
   return (

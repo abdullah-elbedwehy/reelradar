@@ -1,6 +1,6 @@
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 const RELEASE_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest'
-const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.54.zip'
 
 const STEPS = [
   {
@@ -225,7 +225,7 @@ export default function Install() {
               onMouseLeave={e => { e.currentTarget.style.filter = 'none' }}
             >
               <DownloadZipIcon />
-              Download v9.53 (.zip)
+              Download v9.54 (.zip)
             </a>
             <a
               href={RELEASE_URL}

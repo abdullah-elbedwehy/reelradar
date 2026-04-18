@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
-const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.54.zip'
 
 /* ─────────────────────────────────────────────────────────────
    Animated extension mock

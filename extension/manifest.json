@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "ReelRadar",
   "description": "Explore and sort Instagram Reels and TikToks by views, likes, comments, shares, and more — open source.",
-  "version": "9.53",
+  "version": "9.54",
   "permissions": [
     "activeTab",
     "tabs",

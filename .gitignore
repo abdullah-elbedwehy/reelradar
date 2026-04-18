@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+landing/node_modules/
+
+# Build output
+dist/
+build/
+landing/dist/
+landing/build/
+
+# IDE
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.*
+
+# Extension packaging
+*.crx
+*.pem
+*.zip
+
+# Internal plans & docs
+plan/
+design/
+CONTRIBUTING.md
+ROADMAP.md
+*.plan.md

@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rr-bg:           #000000;
+  --rr-surface:      #050a0c;
+  --rr-surface-2:    #0c1418;
+  --rr-surface-3:    #121e24;
+  --rr-text:         #e8f8fc;
+  --rr-muted:        #7a9aa3;
+  --rr-border:       #1a2e36;
+  --rr-primary:      #22d3ee;
+  --rr-primary-text: #021014;
+  --rr-primary-dim:  rgba(34, 211, 238, 0.18);
+  --rr-accent-2:     #67e8f9;
+  --rr-danger-bg:    #140808;
+  --rr-danger-tx:    #fca5a5;
+  --rr-success-bg:   #050f0c;
+  --rr-success-tx:   #5eead4;
+  --rr-shadow-cta:      0 2px 12px rgba(34, 211, 238, 0.18);
+  --rr-shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --rr-shadow-focus:    0 0 0 3px rgba(34, 211, 238, 0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--rr-bg);
+  color: var(--rr-text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+*:focus { outline: none; }
+*:focus-visible { box-shadow: var(--rr-shadow-focus); }
+
+::selection {
+  background: rgba(34, 211, 238, 0.18);
+  color: var(--rr-text);
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--rr-bg); }
+::-webkit-scrollbar-thumb { background: var(--rr-border); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #223a46; }
+
+/* ── Animations ── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 2px 12px rgba(34, 211, 238, 0.18); }
+  50%       { box-shadow: 0 2px 24px rgba(34, 211, 238, 0.38); }
+}
+
+/* ── Dot-grid background helper ── */
+.dot-grid {
+  background-image: radial-gradient(rgba(26, 46, 54, 0.55) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Mono / terminal text ── */
+.mono {
+  font-family: "SF Mono", "JetBrains Mono", "Fira Code", "Consolas", monospace;
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+/* ── Scan-line sweep ── */
+@keyframes scanline {
+  0%   { transform: translateY(-8px); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.scanline::after {
+  content: '';
+  position: fixed;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(34, 211, 238, 0.06);
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+  z-index: 0;
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const GITHUB_URL = 'https://github.com/your-org/reelradar'
+const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 
 /* ─────────────────────────────────────────────────────────────
    Animated extension mock

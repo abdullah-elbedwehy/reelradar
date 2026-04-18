@@ -1,4 +1,4 @@
-const GITHUB_URL = 'https://github.com/your-org/reelradar'
+const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 
 export default function Footer() {
   return (
@@ -38,10 +38,10 @@ export default function Footer() {
           {/* Right: links */}
           <nav style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
             {[
-              { label: 'GitHub',         href: GITHUB_URL },
-              { label: 'Design System',  href: `${GITHUB_URL}/blob/main/design/DESIGN.md` },
-              { label: 'Contributing',   href: `${GITHUB_URL}/blob/main/CONTRIBUTING.md` },
-              { label: 'Roadmap',        href: `${GITHUB_URL}/blob/main/plan/overview.md` },
+              { label: 'GitHub',      href: GITHUB_URL },
+              { label: 'Issues',      href: `${GITHUB_URL}/issues` },
+              { label: 'Extension',   href: `${GITHUB_URL}/tree/main/extension` },
+              { label: 'License',     href: `${GITHUB_URL}/blob/main/LICENSE` },
             ].map(link => (
               <a
                 key={link.label}

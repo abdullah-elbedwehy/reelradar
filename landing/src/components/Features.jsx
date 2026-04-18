@@ -48,14 +48,14 @@ const FEATURES = [
     n: '05',
     title: 'Load unpacked. Close the terminal.',
     tag: 'No Build Step',
-    body: "Clone the repo. Open chrome://extensions. Toggle developer mode. Click Load unpacked. Select the folder. Done. There is no npm install, no webpack config, no environment variables, no .env file to set up. It runs as plain JavaScript in your browser the same way it has run since Chrome extensions existed.",
-    metric: 'git clone → Load unpacked',
+    body: "Clone the repo. Open chrome://extensions. Toggle developer mode. Click Load unpacked. Select the extension/ folder. Done. There is no npm install, no webpack config, no environment variables, no .env file to set up. It runs as plain JavaScript in your browser the same way it has run since Chrome extensions existed.",
+    metric: 'git clone → Load unpacked (extension/ folder)',
   },
   {
     n: '06',
     title: 'MIT. Do whatever you want with it.',
     tag: 'License',
-    body: "Fork it, sell it, vendor it to a client, add YouTube Shorts support, strip out TikTok entirely. The only requirement is that you keep the license notice. The design language is documented in /design/DESIGN.md — UI contributions must follow it, so the extension stays coherent as it grows.",
+    body: "Fork it, sell it, vendor it to a client, add YouTube Shorts support, strip out TikTok entirely. The only requirement is that you keep the license notice. The extension source lives in the extension/ folder — load it unpacked in Chrome to run any fork instantly.",
     metric: 'MIT License',
   },
 ]

@@ -344,7 +344,7 @@ export default function Hero() {
       }} aria-hidden="true" />
 
       <div
-        className="max-w-5xl mx-auto px-6"
+        className="max-w-5xl mx-auto px-6 rr-hero-grid"
         style={{
           minHeight: 'calc(100vh - 56px)',
           display: 'flex',
@@ -381,6 +381,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1
+            className="rr-hero-headline"
             style={{
               fontFamily: 'Rajdhani, sans-serif',
               fontSize: 'clamp(2.8rem, 5vw, 3.9rem)',
@@ -462,22 +463,25 @@ export default function Hero() {
 
         {/* ── Right: animated extension mock ── */}
         <div
-          className="hidden lg:flex items-center justify-center flex-shrink-0"
+          className="hidden lg:flex items-center justify-center flex-shrink-0 rr-hero-mock-wrapper"
           style={{ animation: 'fadeUp 0.55s ease-out 0.18s both' }}
         >
           {/* Chrome window chrome (pun intended) */}
           <div style={{ position: 'relative' }}>
             {/* Window bar */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 6,
-              background: '#050a0c',
-              border: '1px solid #1a2e36',
-              borderBottom: 'none',
-              borderRadius: '10px 10px 0 0',
-              padding: '8px 12px',
-            }}>
+            <div
+              className="rr-hero-mock-chrome"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+                background: '#050a0c',
+                border: '1px solid #1a2e36',
+                borderBottom: 'none',
+                borderRadius: '10px 10px 0 0',
+                padding: '8px 12px',
+              }}
+            >
               {['#ff5f57','#febc2e','#28c840'].map(c => (
                 <span key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c, opacity: 0.6 }} />
               ))}
@@ -497,12 +501,15 @@ export default function Hero() {
             </div>
 
             {/* Extension popup */}
-            <div style={{
-              border: '1px solid #1a2e36',
-              borderTop: 'none',
-              borderRadius: '0 0 10px 10px',
-              overflow: 'hidden',
-            }}>
+            <div
+              className="rr-hero-mock-popup"
+              style={{
+                border: '1px solid #1a2e36',
+                borderTop: 'none',
+                borderRadius: '0 0 10px 10px',
+                overflow: 'hidden',
+              }}
+            >
               <ExtensionMock />
             </div>
 

@@ -1,0 +1,159 @@
+/* Mobile layout overrides (≤768px). Uses rr-* hooks on components; !important defeats inline styles. */
+
+@media (max-width: 768px) {
+  /* Section rhythm */
+  .rr-section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  /* Hero */
+  .rr-hero-grid {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 2.5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+  }
+
+  .rr-hero-headline {
+    font-size: 2.1rem !important;
+    max-width: none !important;
+    line-height: 1.05 !important;
+  }
+
+  .rr-hero-mock-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+
+  .rr-hero-mock-chrome {
+    display: none !important;
+  }
+
+  .rr-hero-mock-popup {
+    border-top: 1px solid #1a2e36 !important;
+    border-radius: 12px !important;
+  }
+
+  /* Nav: mobile menu */
+  .rr-nav-menu {
+    position: relative;
+    z-index: 60;
+  }
+
+  .rr-nav-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    cursor: pointer;
+    color: #e8f8fc;
+    background: transparent;
+    border: 1px solid #1a2e36;
+    border-radius: 8px;
+  }
+
+  .rr-nav-menu-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .rr-nav-menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 11rem;
+    padding: 0.65rem 0.75rem;
+    background: rgba(5, 10, 12, 0.98);
+    border: 1px solid #1a2e36;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .rr-nav-menu-panel a {
+    font-family: Barlow, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #7a9aa3 !important;
+    text-decoration: none;
+    padding: 0.4rem 0.35rem;
+    border-radius: 6px;
+  }
+
+  .rr-nav-menu-panel a:active {
+    background: rgba(34, 211, 238, 0.08);
+    color: #e8f8fc !important;
+  }
+
+  .rr-nav-github {
+    padding: 0.25rem 0.6rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Grids that lose to inline gridTemplateColumns */
+  .rr-platforms-grid,
+  .rr-platforms-limits,
+  .rr-howitworks-grid,
+  .rr-install-grid,
+  .rr-cta-grid,
+  .rr-troubleshoot-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .rr-platform-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .rr-platform-metrics {
+    max-width: none !important;
+    justify-content: flex-start !important;
+  }
+
+  .rr-features-row {
+    grid-template-columns: 2rem 1fr !important;
+    gap: 0 1rem !important;
+    padding: 1.5rem 0 !important;
+  }
+
+  .rr-install-step {
+    grid-template-columns: 2rem 1fr !important;
+    gap: 0 1rem !important;
+  }
+
+  .rr-install-step-line {
+    left: 1rem !important;
+  }
+
+  .rr-update-step {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+  }
+
+  .rr-update-step > span:last-child {
+    white-space: normal !important;
+    flex-shrink: 1 !important;
+  }
+
+  .rr-cta-actions {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}

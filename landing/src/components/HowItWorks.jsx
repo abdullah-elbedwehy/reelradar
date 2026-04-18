@@ -49,15 +49,19 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
+      className="rr-section"
       style={{ background: '#050a0c', borderTop: '1px solid #1a2e36', borderBottom: '1px solid #1a2e36', padding: '6rem 0' }}
     >
       <div className="max-w-5xl mx-auto px-6">
-        <div style={{
+        <div
+          className="max-lg:grid-cols-1 rr-howitworks-grid"
+          style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '4rem',
           alignItems: 'start',
-        }} className="max-lg:grid-cols-1">
+        }}
+        >
 
           {/* Left: copy */}
           <div>

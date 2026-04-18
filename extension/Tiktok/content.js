@@ -87,7 +87,7 @@ function handleTikTokActionClick(e) {
         download_video_id: t.dataset.rrVideoId || "",
         download_profile_name: t.dataset.rrProfileName || "",
         photoFlag: t.dataset.rrPhotoFlag === "1",
-        iconUrl: chrome.runtime.getURL("Icons/16 ReelRadar.png"),
+        iconUrl: chrome.runtime.getURL("Icons/reelradar-logo.svg"),
       },
       "*",
     ));
@@ -1754,7 +1754,7 @@ function add_overlay() {
       height: 100%;
       top: 0;
       left: 0;
-      background-color: rgba(255,215,112,0.4);
+      background-color: rgba(34, 211, 238, 0.18);
       z-index: 9999; /* make sure it\u2019s above everything */
       cursor: pointer;
     `,
@@ -1856,8 +1856,14 @@ function injectSortFeedBanner(e = 25) {
       60% { transform: translateY(-10px); }
     }
     .sort-banner .icon {
-      padding: 4px; width: 1.5rem !important; height: auto !important;
-      margin-right: 8px; animation: bounceLogo 1s infinite;
+      padding: 4px;
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px;
+      flex-shrink: 0;
+      object-fit: contain;
+      margin-right: 8px;
+      animation: bounceLogo 1s infinite;
     }
     .sort-banner {
       width: 100%; box-sizing: border-box;
@@ -1891,7 +1897,7 @@ function injectSortFeedBanner(e = 25) {
   const o = document.createElement("div");
   ((o.className = "sort-banner"),
     (o.innerHTML = `
-    <img class="icon" src="${chrome.runtime.getURL("Icons/16 ReelRadar.png")}" />
+    <img class="icon" src="${chrome.runtime.getURL("Icons/reelradar-logo.svg")}" alt="" onerror="this.style.display='none'" />
     <div class="message">${e} TikToks sorted - don't scroll yet</div>
     <button class="stop-btn">
       <img src="${chrome.runtime.getURL("Icons/StopIcon.png")}" alt="">
@@ -2222,8 +2228,14 @@ function showDownloadBanner(e) {
       60% { transform: translateY(-10px); }
     }
     .download-reel-banner .icon {
-      padding: 4px; width: 1.5rem !important; height: auto !important;
-      margin-right: 8px; animation: bounceLogo 1s infinite;
+      padding: 4px;
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px;
+      flex-shrink: 0;
+      object-fit: contain;
+      margin-right: 8px;
+      animation: bounceLogo 1s infinite;
     }
     .download-reel-banner {
       width: 100%; box-sizing: border-box;
@@ -2246,7 +2258,7 @@ function showDownloadBanner(e) {
   const t = document.createElement("div");
   ((t.className = "download-reel-banner"),
     (t.innerHTML = `
-    <img class="icon" src="${chrome.runtime.getURL("Icons/16 ReelRadar.png")}" />
+    <img class="icon" src="${chrome.runtime.getURL("Icons/reelradar-logo.svg")}" alt="" onerror="this.style.display='none'" />
     <div class="message">0% Downloaded</div>
   `),
     _sfGetBannerStackTikTok().appendChild(t));

@@ -1,5 +1,21 @@
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 
+const NAV_LINKS = [
+  { label: 'Features', href: '#features' },
+  { label: 'Platforms', href: '#platforms' },
+  { label: 'Install', href: '#install' },
+]
+
+const linkStyle = {
+  fontFamily: 'Barlow, sans-serif',
+  fontSize: '0.8125rem',
+  fontWeight: 500,
+  letterSpacing: '0.01em',
+  color: '#7a9aa3',
+  textDecoration: 'none',
+  transition: 'color 0.15s ease',
+}
+
 export default function Nav() {
   return (
     <header
@@ -31,34 +47,36 @@ export default function Nav() {
           </span>
         </a>
 
-        {/* Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.75rem' }}>
-          {[
-            { label: 'Features',  href: '#features' },
-            { label: 'Platforms', href: '#platforms' },
-            { label: 'Install',   href: '#install' },
-          ].map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              style={{
-                fontFamily: 'Barlow, sans-serif',
-                fontSize: '0.8125rem',
-                fontWeight: 500,
-                letterSpacing: '0.01em',
-                color: '#7a9aa3',
-                textDecoration: 'none',
-                transition: 'color 0.15s ease',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.color = '#e8f8fc' }}
-              onMouseLeave={e => { e.currentTarget.style.color = '#7a9aa3' }}
-              className="hidden sm:block"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="flex items-center gap-3 md:gap-7" style={{ alignItems: 'center' }}>
+          <details className="rr-nav-menu md:hidden">
+            <summary className="rr-nav-menu-toggle" aria-label="Open menu">
+              <MenuIcon />
+            </summary>
+            <div className="rr-nav-menu-panel">
+              {NAV_LINKS.map(link => (
+                <a key={link.label} href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </details>
+
+          <div className="hidden md:flex items-center" style={{ gap: '1.75rem' }}>
+            {NAV_LINKS.map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                style={linkStyle}
+                onMouseEnter={e => { e.currentTarget.style.color = '#e8f8fc' }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#7a9aa3' }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
           <a
+            className="rr-nav-github"
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -93,6 +111,16 @@ export default function Nav() {
         </div>
       </nav>
     </header>
+  )
+}
+
+function MenuIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
   )
 }
 

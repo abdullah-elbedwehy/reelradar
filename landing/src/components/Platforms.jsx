@@ -66,14 +66,17 @@ function PlatformCard({ platform }) {
       overflow: 'hidden',
     }}>
       {/* Header */}
-      <div style={{
+      <div
+        className="rr-platform-header"
+        style={{
         padding: '1.5rem',
         borderBottom: '1px solid #1a2e36',
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         gap: '1rem',
-      }}>
+      }}
+      >
         <div>
           <h3 style={{
             fontFamily: 'Rajdhani, sans-serif',
@@ -95,7 +98,7 @@ function PlatformCard({ platform }) {
           </code>
         </div>
         {/* Metric pills */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'flex-end', maxWidth: 180 }}>
+        <div className="rr-platform-metrics" style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'flex-end', maxWidth: 180 }}>
           {platform.metrics.map(m => (
             <span key={m} style={{
               fontFamily: '"Barlow Condensed", sans-serif',
@@ -227,6 +230,7 @@ export default function Platforms() {
   return (
     <section
       id="platforms"
+      className="rr-section"
       style={{
         background: '#050a0c',
         borderTop: '1px solid #1a2e36',
@@ -274,17 +278,22 @@ export default function Platforms() {
         </div>
 
         {/* Platform cards */}
-        <div style={{
+        <div
+          className="max-lg:grid-cols-1 rr-platforms-grid"
+          style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '1.25rem',
-        }} className="max-lg:grid-cols-1">
+        }}
+        >
           <PlatformCard platform={INSTAGRAM} />
           <PlatformCard platform={TIKTOK} />
         </div>
 
         {/* Shared limitations */}
-        <div style={{
+        <div
+          className="max-lg:grid-cols-1 rr-platforms-limits"
+          style={{
           marginTop: '1.5rem',
           background: '#050a0c',
           border: '1px solid #1a2e36',
@@ -293,7 +302,8 @@ export default function Platforms() {
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr',
           gap: '1.5rem',
-        }} className="max-lg:grid-cols-1">
+        }}
+        >
           {[
             {
               label: 'Profile pages only',

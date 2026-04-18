@@ -64,6 +64,7 @@ export default function Features() {
   return (
     <section
       id="features"
+      className="rr-section"
       style={{ borderTop: '1px solid #1a2e36', paddingTop: '6rem', paddingBottom: '6rem' }}
     >
       <div className="max-w-5xl mx-auto px-6">
@@ -113,6 +114,7 @@ function FeatureRow({ feature, last, index }) {
   return (
     <div
       ref={ref}
+      className="rr-features-row"
       style={{
         display: 'grid',
         gridTemplateColumns: '2.5rem 1fr',

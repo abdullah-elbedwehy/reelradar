@@ -82,7 +82,7 @@ const TROUBLESHOOTING = [
 
 export default function Install() {
   return (
-    <section id="install" style={{ padding: '6rem 0 7rem' }}>
+    <section id="install" className="rr-section" style={{ padding: '6rem 0 7rem' }}>
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Header */}
@@ -123,12 +123,15 @@ export default function Install() {
         </div>
 
         {/* Main layout */}
-        <div style={{
+        <div
+          className="max-lg:block max-lg:space-y-8 rr-install-grid"
+          style={{
           display: 'grid',
           gridTemplateColumns: '1fr 340px',
           gap: '4rem',
           alignItems: 'start',
-        }} className="max-lg:block max-lg:space-y-8">
+        }}
+        >
 
           {/* Steps */}
           <div>
@@ -315,7 +318,9 @@ export default function Install() {
                 }}>
                   {i + 1}
                 </span>
-                <div style={{
+                <div
+                  className="rr-update-step"
+                  style={{
                   background: '#0c1418',
                   border: '1px solid #1a2e36',
                   borderRadius: '7px',
@@ -324,7 +329,8 @@ export default function Install() {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   gap: '1rem',
-                }}>
+                }}
+                >
                   <code style={{
                     fontFamily: '"SF Mono", "JetBrains Mono", monospace',
                     fontSize: '0.68rem',
@@ -378,7 +384,9 @@ export default function Install() {
             Common issues and exactly what to do about them.
           </p>
 
-          <div style={{
+          <div
+            className="max-lg:grid-cols-1 rr-troubleshoot-grid"
+            style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '1px',
@@ -386,7 +394,8 @@ export default function Install() {
             border: '1px solid #1a2e36',
             borderRadius: '12px',
             overflow: 'hidden',
-          }} className="max-lg:grid-cols-1">
+          }}
+          >
             {TROUBLESHOOTING.map((item, i) => (
               <div
                 key={i}
@@ -429,22 +438,29 @@ export default function Install() {
 
 function InstallStep({ step, last }) {
   return (
-    <div style={{
+    <div
+      className="rr-install-step"
+      style={{
       display: 'grid',
       gridTemplateColumns: '2.5rem 1fr',
       gap: '0 1.5rem',
       paddingBottom: last ? 0 : '2.25rem',
       position: 'relative',
-    }}>
+    }}
+    >
       {!last && (
-        <div style={{
+        <div
+          className="rr-install-step-line"
+          style={{
           position: 'absolute',
           left: '1.2rem',
           top: '2.5rem',
           bottom: 0,
           width: '1px',
           background: 'linear-gradient(to bottom, #1a2e36, transparent)',
-        }} aria-hidden="true" />
+        }}
+          aria-hidden="true"
+        />
       )}
 
       {/* Step bubble */}

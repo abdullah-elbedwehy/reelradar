@@ -9,6 +9,7 @@ export default function CallToAction() {
   return (
     <section
       ref={ref}
+      className="rr-section"
       style={{
         background: '#050a0c',
         borderTop: '1px solid #1a2e36',
@@ -35,12 +36,15 @@ export default function CallToAction() {
         style={{ position: 'relative', zIndex: 1 }}
       >
         {/* Main content — asymmetric: big left, tight right */}
-        <div style={{
+        <div
+          className="max-lg:grid-cols-1 rr-cta-grid"
+          style={{
           display: 'grid',
           gridTemplateColumns: '1fr auto',
           gap: '3rem',
           alignItems: 'center',
-        }} className="max-lg:grid-cols-1">
+        }}
+        >
 
           {/* Left: the pitch */}
           <div>
@@ -119,12 +123,15 @@ export default function CallToAction() {
           </div>
 
           {/* Right: action cluster */}
-          <div style={{
+          <div
+            className="rr-cta-actions"
+            style={{
             display: 'flex',
             flexDirection: 'column',
             gap: '0.75rem',
             minWidth: 220,
-          }}>
+          }}
+          >
             <a
               href={DOWNLOAD_URL}
               target="_blank"

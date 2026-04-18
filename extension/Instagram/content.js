@@ -555,8 +555,7 @@ function add_overlay() {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  background-color: rgba(255,215,112,0.4);
+  background-color: rgba(34, 211, 238, 0.18);
   z-index: 2;
   cursor: pointer;
   `),
@@ -1861,8 +1860,11 @@ function injectSortFeedBanner(e = 25, t = "Posts") {
 
     .sort-banner .icon {
       padding: 4px;
-      width: 1.1rem !important;
-      height: auto !important;
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px;
+      flex-shrink: 0;
+      object-fit: contain;
       margin-right: 8px;
       animation: bounceLogo 1s infinite;
     }
@@ -1926,7 +1928,7 @@ function injectSortFeedBanner(e = 25, t = "Posts") {
   const n = document.createElement("div");
   ((n.className = "sort-banner"),
     (n.innerHTML = `
-  <img class="icon" src="${chrome.runtime.getURL("Icons/16 ReelRadar.png")}" />
+  <img class="icon" src="${chrome.runtime.getURL("Icons/reelradar-logo.svg")}" alt="" onerror="this.style.display='none'" />
   <div class="message">
     Sorting ${e} ${t} \u2014 don't scroll
   </div>
@@ -3047,8 +3049,11 @@ function show_downloading_reel_banner(e, t) {
 
   .download-reel-banner .icon {
     padding: 4px;
-    width: 1.1rem !important;
-    height: auto !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px;
+    flex-shrink: 0;
+    object-fit: contain;
     margin-right: 8px;
     animation: bounceLogo 1s infinite;
   }
@@ -3084,7 +3089,7 @@ function show_downloading_reel_banner(e, t) {
   const n = document.createElement("div");
   ((n.className = "download-reel-banner"),
     (n.innerHTML = `
-  <img class="icon" src="${chrome.runtime.getURL("Icons/16 ReelRadar.png")}" />
+  <img class="icon" src="${chrome.runtime.getURL("Icons/reelradar-logo.svg")}" alt="" onerror="this.style.display='none'" />
   <div class="message">
       ${t}
   </div>

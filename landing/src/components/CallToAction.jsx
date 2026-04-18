@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
-const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.54.zip'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v1.1.zip'
 
 export default function CallToAction() {
   const ref = useRef(null)
@@ -161,7 +161,7 @@ export default function CallToAction() {
               onMouseUp={e => { e.currentTarget.style.transform = 'scale(1)' }}
             >
               <DownloadIcon />
-              Download v9.54
+              Download v1.1
             </a>
 
             <a

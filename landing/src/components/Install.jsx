@@ -1,6 +1,8 @@
+import { useCallback, useEffect, useRef, useState } from 'react'
+
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
 const RELEASE_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest'
-const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.54.zip'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v1.1.zip'
 
 const STEPS = [
   {
@@ -165,17 +167,7 @@ export default function Install() {
                 How to install ReelRadar
               </span>
             </div>
-            <video
-              src="/tutorial.mp4"
-              controls
-              playsInline
-              style={{
-                display: 'block',
-                width: '100%',
-                maxHeight: '520px',
-                background: '#000',
-              }}
-            />
+            <InstallWalkthroughVideo />
           </div>
         </div>
 
@@ -282,7 +274,7 @@ export default function Install() {
               onMouseLeave={e => { e.currentTarget.style.filter = 'none' }}
             >
               <DownloadZipIcon />
-              Download v9.54 (.zip)
+              Download v1.1 (.zip)
             </a>
             <a
               href={RELEASE_URL}
@@ -492,6 +484,82 @@ export default function Install() {
 }
 
 /* ── Sub-components ── */
+
+function InstallWalkthroughVideo() {
+  const videoRef = useRef(null)
+  const [playing, setPlaying] = useState(true)
+  const [frameAspect, setFrameAspect] = useState('1724 / 1080')
+
+  const onLoadedMetadata = useCallback((e) => {
+    const { videoWidth, videoHeight } = e.currentTarget
+    if (videoWidth > 0 && videoHeight > 0) {
+      setFrameAspect(`${videoWidth} / ${videoHeight}`)
+    }
+  }, [])
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.play().catch(() => setPlaying(false))
+  }, [])
+
+  const toggle = useCallback(() => {
+    const v = videoRef.current
+    if (!v) return
+    if (v.paused) {
+      v.play()
+    } else {
+      v.pause()
+    }
+  }, [])
+
+  const onKeyDown = useCallback((e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      toggle()
+    }
+  }, [toggle])
+
+  return (
+    <div
+      className="rr-install-video-wrap"
+      style={{ aspectRatio: frameAspect }}
+      role="button"
+      tabIndex={0}
+      aria-label={playing ? 'Pause walkthrough video' : 'Play walkthrough video'}
+      onClick={toggle}
+      onKeyDown={onKeyDown}
+    >
+      <video
+        ref={videoRef}
+        className="rr-install-video-el"
+        src="/tutorial.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        disablePictureInPicture
+        disableRemotePlayback
+        onLoadedMetadata={onLoadedMetadata}
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+      />
+      <div className="rr-install-video-shine" aria-hidden />
+      {!playing && (
+        <div className="rr-install-video-paused" aria-hidden>
+          <div className="rr-install-video-play-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M8 5v14l11-7L8 5z" />
+            </svg>
+          </div>
+        </div>
+      )}
+      <div className="rr-install-video-hint" aria-hidden>
+        {playing ? 'Click to pause' : 'Click to play'}
+      </div>
+    </div>
+  )
+}
 
 function InstallStep({ step, last }) {
   return (

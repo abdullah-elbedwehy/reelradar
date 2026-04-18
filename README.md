@@ -10,7 +10,7 @@ Sort, explore, and analyze Instagram Reels and TikToks with an open-source Chrom
 
 ### Option A — Download release (easiest)
 
-1. **[Download the latest release ZIP](https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip)**
+1. **[Download the latest release ZIP](https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v1.1.zip)**
 2. Unzip it — you'll get an `extension/` folder
 3. Open `chrome://extensions` → enable **Developer mode** → click **Load unpacked**
 4. Select the `extension/` folder → done

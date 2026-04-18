@@ -1,13 +1,12 @@
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(32px);
-  }
+/* ═══════════════════════════════════════════════════════
+   ReelRadar — License / subscription sub-styles
+   Design language: OLED black / electric cyan
+   Follows: design/DESIGN.md
+═══════════════════════════════════════════════════════ */
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 .slide-left-animation {
@@ -15,15 +14,8 @@
 }
 
 @keyframes slideRight {
-  from {
-    opacity: 0;
-    transform: translateX(-32px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 .slide-right-animation {
@@ -31,15 +23,11 @@
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
+/* ── License key input ──────────────────────────────── */
 .input-container_sub {
   position: relative;
   width: 100%;
@@ -56,11 +44,11 @@
   pointer-events: none;
   opacity: 0.82;
   transform: translateY(-50%);
-  filter: brightness(0) saturate(100%) invert(84%) sepia(35%) saturate(1270%)
-    hue-rotate(149deg) brightness(101%) contrast(96%);
-  transition:
-    opacity var(--rr-transition-fast, 150ms ease),
-    transform var(--rr-transition-fast, 150ms ease);
+  /* Cyan-tinted icon */
+  filter: brightness(0) saturate(100%) invert(84%) sepia(35%)
+          saturate(1270%) hue-rotate(149deg) brightness(101%) contrast(96%);
+  transition: opacity var(--rr-transition-fast, 150ms ease),
+              transform var(--rr-transition-fast, 150ms ease);
 }
 
 .input-container_sub:hover .input-icon_sub,
@@ -75,23 +63,20 @@
   padding: 10px 14px 10px 38px;
   box-sizing: border-box;
   border: 1px solid var(--rr-border, #1a2e36);
-  border-radius: 10px;
+  border-radius: var(--rr-radius-sm, 8px);
   background: var(--rr-surface-2, #0c1418);
   color: var(--rr-text, #e8f8fc);
   outline: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.02),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.24);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  font-size: 0.75rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02),
+              inset 0 0 0 1px rgba(0, 0, 0, 0.24);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  transition:
-    border-color var(--rr-transition-fast, 150ms ease),
-    box-shadow var(--rr-transition-fast, 150ms ease),
-    background-color var(--rr-transition-fast, 150ms ease);
+  transition: border-color var(--rr-transition-fast, 150ms ease),
+              box-shadow var(--rr-transition-fast, 150ms ease),
+              background-color var(--rr-transition-fast, 150ms ease);
 }
 
 .license-input_sub::placeholder {
@@ -106,9 +91,8 @@
 .license-input_sub:focus,
 .license-input_sub:focus-visible {
   border-color: var(--rr-primary, #22d3ee);
-  box-shadow:
-    0 0 0 3px rgba(34, 211, 238, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .license-input_sub:-webkit-autofill,
@@ -124,32 +108,31 @@
   pointer-events: none;
 }
 
+/* ── Activate Pro button — primary CTA per DESIGN.md ── */
 .activate_pro_button {
   width: 100%;
   min-height: 42px;
   margin-top: 14px;
   margin-bottom: 10px;
-  padding: 10px 16px;
+  padding: 0.6rem 1.2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: var(--rr-radius-md, 10px);
   background: var(--rr-primary, #22d3ee);
   color: var(--rr-primary-text, #021014);
   cursor: pointer;
   box-shadow: var(--rr-shadow-cta, 0 2px 12px rgba(34, 211, 238, 0.18));
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  font-size: 0.75rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9375rem;
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.01em;
-  transition:
-    filter var(--rr-transition-fast, 150ms ease),
-    transform var(--rr-transition-fast, 150ms ease),
-    box-shadow var(--rr-transition-fast, 150ms ease);
+  transition: filter var(--rr-transition-fast, 150ms ease),
+              transform 80ms ease,
+              box-shadow var(--rr-transition-fast, 150ms ease);
 }
 
 .activate_pro_button > div {
@@ -159,20 +142,14 @@
   gap: 6px;
 }
 
-.activate_pro_button:hover {
-  filter: brightness(1.08);
-}
-
-.activate_pro_button:active {
-  transform: scale(0.98);
-}
+.activate_pro_button:hover  { filter: brightness(1.1); }
+.activate_pro_button:active { transform: scale(0.98); }
 
 .activate_pro_button:focus,
 .activate_pro_button:focus-visible {
   outline: none;
-  box-shadow:
-    0 0 0 3px rgba(34, 211, 238, 0.15),
-    var(--rr-shadow-cta, 0 2px 12px rgba(34, 211, 238, 0.18));
+  box-shadow: var(--rr-shadow-focus, 0 0 0 3px rgba(34, 211, 238, 0.15)),
+              var(--rr-shadow-cta, 0 2px 12px rgba(34, 211, 238, 0.18));
 }
 
 .activate_pro_button img,
@@ -188,14 +165,14 @@
   box-shadow: none;
 }
 
+/* ── License helper text ───────────────────────────── */
 .license_key_message {
   display: inline-block;
   margin-top: 6px;
   margin-left: 2px;
   color: var(--rr-muted, #7a9aa3);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
   font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -203,6 +180,8 @@
   text-transform: uppercase;
 }
 
+/* ── Error / warning banner — per DESIGN.md ─────────── */
+/* JS injects inline background-color; !important overrides it */
 .warning_message {
   display: flex;
   align-items: center;
@@ -210,6 +189,7 @@
   min-height: 44px;
   border-bottom: 1px solid rgba(252, 165, 165, 0.2);
   background: var(--rr-danger-bg, #140808) !important;
+  background-color: var(--rr-danger-bg, #140808) !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
@@ -219,16 +199,17 @@
   align-items: center;
   justify-content: center;
   color: var(--rr-danger-text, #fca5a5);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.01em;
   text-align: center;
 }
 
+/* ── Success banner — per DESIGN.md ─────────────────── */
+/* JS injects inline background-color; !important overrides it */
 .sucess_message {
   display: flex;
   align-items: center;
@@ -236,6 +217,7 @@
   min-height: 44px;
   border-bottom: 1px solid rgba(94, 234, 212, 0.2);
   background: var(--rr-success-bg, #050f0c) !important;
+  background-color: var(--rr-success-bg, #050f0c) !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
@@ -245,20 +227,18 @@
   align-items: center;
   justify-content: center;
   color: var(--rr-success-text, #5eead4);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.01em;
   text-align: center;
 }
 
-.sucess_text img {
-  flex: 0 0 auto;
-}
+.sucess_text img { flex: 0 0 auto; }
 
+/* ── Reduced motion ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .slide-left-animation,
   .slide-right-animation,

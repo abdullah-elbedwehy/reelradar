@@ -4,6 +4,10 @@ Sort, explore, and analyze Instagram Reels and TikToks with an open-source Chrom
 
 ## Install
 
+### Video walkthrough
+
+<video src="landing/public/tutorial.mp4" controls width="100%"></video>
+
 ### Option A — Download release (easiest)
 
 1. **[Download the latest release ZIP](https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip)**

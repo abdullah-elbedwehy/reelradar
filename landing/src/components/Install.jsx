@@ -86,7 +86,7 @@ export default function Install() {
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Header */}
-        <div style={{ marginBottom: '3.5rem' }}>
+        <div style={{ marginBottom: '3rem' }}>
           <p style={{
             fontFamily: '"Barlow Condensed", sans-serif',
             fontSize: '0.65rem',
@@ -120,6 +120,63 @@ export default function Install() {
           }}>
             ReelRadar is a plain-JavaScript Chrome extension. You load it directly from a folder — no compiler, no package manager, no terminal after the first git clone.
           </p>
+        </div>
+
+        {/* Video tutorial */}
+        <div style={{ marginBottom: '3.5rem' }}>
+          <p style={{
+            fontFamily: '"Barlow Condensed", sans-serif',
+            fontSize: '0.62rem',
+            fontWeight: 600,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: '#7a9aa3',
+            margin: '0 0 0.75rem',
+          }}>
+            Video walkthrough
+          </p>
+          <div style={{
+            background: '#000',
+            border: '1px solid #1a2e36',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+          }}>
+            {/* Window bar */}
+            <div style={{
+              background: '#050a0c',
+              borderBottom: '1px solid #1a2e36',
+              padding: '10px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 7,
+            }}>
+              {['#ff5f57', '#febc2e', '#28c840'].map(c => (
+                <span key={c} style={{ width: 9, height: 9, borderRadius: '50%', background: c, opacity: 0.55 }} />
+              ))}
+              <span style={{
+                marginLeft: 6,
+                fontFamily: '"Barlow Condensed", sans-serif',
+                fontSize: '0.65rem',
+                color: '#7a9aa3',
+                letterSpacing: '0.04em',
+                fontWeight: 500,
+              }}>
+                How to install ReelRadar
+              </span>
+            </div>
+            <video
+              src="/tutorial.mp4"
+              controls
+              playsInline
+              style={{
+                display: 'block',
+                width: '100%',
+                maxHeight: '520px',
+                background: '#000',
+              }}
+            />
+          </div>
         </div>
 
         {/* Main layout */}

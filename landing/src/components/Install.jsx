@@ -1,47 +1,49 @@
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
+const RELEASE_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip'
 
 const STEPS = [
   {
     n: '01',
-    label: 'Clone the repository',
-    cmd: 'git clone https://github.com/abdullah-elbedwehy/reelradar.git',
-    lang: 'shell',
-    note: "This creates a folder called 'reelradar' in your current directory. Or go to GitHub → click Code → Download ZIP → unzip it.",
+    label: 'Download the latest release',
+    cmd: DOWNLOAD_URL,
+    lang: 'url',
+    note: 'Click the link above to download the ZIP directly, or visit the Releases page on GitHub and download the reelradar-extension-*.zip asset.',
   },
   {
     n: '02',
-    label: 'Open Chrome Extensions page',
+    label: 'Unzip and open Chrome Extensions',
     cmd: 'chrome://extensions',
     lang: 'url',
-    note: "Copy the address above, paste it into Chrome's address bar, and press Enter. Bookmarking it is useful — you'll come back here when you update.",
+    note: "Unzip the downloaded file — you'll get an extension/ folder. Then paste chrome://extensions into Chrome's address bar.",
   },
   {
     n: '03',
     label: 'Enable Developer mode',
     cmd: '→  Toggle "Developer mode" in the top-right corner',
     lang: 'action',
-    note: 'Chrome hides the "Load unpacked" button until Developer mode is on. Toggle it once — it stays on. You won\'t need to do this again.',
+    note: 'Chrome hides the "Load unpacked" button until Developer mode is on. Toggle it once — it stays on.',
   },
   {
     n: '04',
     label: 'Load the extension folder',
-    cmd: '→  Click "Load unpacked"  →  select the extension folder inside reelradar',
+    cmd: '→  Click "Load unpacked"  →  select the extension/ folder',
     lang: 'action',
-    note: 'Select the extension/ subfolder — the one that contains manifest.json directly inside it. Chrome will install it immediately.',
+    note: 'Select the extension/ folder from the unzipped download — the one with manifest.json directly inside it. Chrome installs it immediately.',
   },
   {
     n: '05',
     label: 'Pin it to your toolbar',
     cmd: '→  Click the puzzle piece icon  →  pin ReelRadar',
     lang: 'action',
-    note: "The puzzle piece (🧩) sits in Chrome's top-right toolbar next to the address bar. Click it, find ReelRadar in the list, and click the pin icon. The ReelRadar icon will now appear permanently in your toolbar.",
+    note: "The puzzle piece (🧩) sits in Chrome's top-right toolbar. Click it, find ReelRadar, and click the pin icon. It'll stay visible in your toolbar.",
   },
   {
     n: '06',
     label: 'Navigate to a profile and open ReelRadar',
     cmd: 'instagram.com/[username]  or  tiktok.com/@[username]',
     lang: 'url',
-    note: 'Go to any public profile. Let the posts load (scroll down a bit if the feed looks sparse). Then click the ReelRadar icon in your toolbar, choose a metric, and hit Sort.',
+    note: 'Go to any public profile. Let the posts load, then click the ReelRadar icon in your toolbar, choose a metric, and hit Sort.',
   },
 ]
 
@@ -196,7 +198,7 @@ export default function Install() {
 
             {/* GitHub CTA */}
             <a
-              href={GITHUB_URL}
+              href={DOWNLOAD_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -219,8 +221,43 @@ export default function Install() {
               onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.1)' }}
               onMouseLeave={e => { e.currentTarget.style.filter = 'none' }}
             >
+              <DownloadZipIcon />
+              Download v9.53 (.zip)
+            </a>
+            <a
+              href={RELEASE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                background: 'transparent',
+                color: '#7a9aa3',
+                padding: '0.6rem 1.25rem',
+                borderRadius: '10px',
+                fontWeight: 600,
+                fontSize: '0.875rem',
+                textDecoration: 'none',
+                border: '1px solid #1a2e36',
+                transition: 'border-color 0.15s ease, color 0.15s ease, background 0.15s ease',
+                fontFamily: 'Barlow, sans-serif',
+                letterSpacing: '0.01em',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = '#22d3ee'
+                e.currentTarget.style.color = '#e8f8fc'
+                e.currentTarget.style.background = 'rgba(34,211,238,0.07)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = '#1a2e36'
+                e.currentTarget.style.color = '#7a9aa3'
+                e.currentTarget.style.background = 'transparent'
+              }}
+            >
               <GitHubIcon />
-              Download from GitHub
+              All releases
             </a>
 
           </div>
@@ -514,6 +551,14 @@ function SideRow({ icon, text }) {
       </svg>
       <span style={{ fontFamily: 'Barlow, sans-serif', fontSize: '0.85rem', color: '#7a9aa3', lineHeight: 1.5 }}>{text}</span>
     </div>
+  )
+}
+
+function DownloadZipIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
   )
 }
 

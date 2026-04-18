@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip'
 
 export default function CallToAction() {
   const ref = useRef(null)
@@ -125,7 +126,9 @@ export default function CallToAction() {
             minWidth: 220,
           }}>
             <a
-              href="#install"
+              href={DOWNLOAD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -151,7 +154,7 @@ export default function CallToAction() {
               onMouseUp={e => { e.currentTarget.style.transform = 'scale(1)' }}
             >
               <DownloadIcon />
-              Install ReelRadar
+              Download v9.53
             </a>
 
             <a

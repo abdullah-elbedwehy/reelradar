@@ -23,7 +23,7 @@ landing/build/
 # Extension packaging
 *.crx
 *.pem
-*.zip
+reelradar-extension-*.zip
 
 # Internal plans & docs
 plan/

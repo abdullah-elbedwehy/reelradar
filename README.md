@@ -2,43 +2,44 @@
 
 Sort, explore, and analyze Instagram Reels and TikToks with an open-source Chrome extension.
 
+## Install
+
+### Option A — Download release (easiest)
+
+1. **[Download the latest release ZIP](https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip)**
+2. Unzip it — you'll get an `extension/` folder
+3. Open `chrome://extensions` → enable **Developer mode** → click **Load unpacked**
+4. Select the `extension/` folder → done
+
+### Option B — Clone (for contributors)
+
+```bash
+git clone https://github.com/abdullah-elbedwehy/reelradar.git
+```
+
+Then follow steps 3–4 above, selecting the `extension/` subfolder.
+
 ## What It Does
 
-- Sorts Instagram and TikTok content by views, likes, comments, shares, saves, or date.
-- Exports sorted results to CSV and XLSX.
-- Adds in-page download and action buttons on supported content.
-- Runs locally for core popup, sorting, and export flows without an external account.
-
-## Current Open-Source Scope
-
-This repository keeps the core extension self-contained. Sorting, export, and download flows work locally without requiring an account or external service.
-
-## Design System
-
-ReelRadar uses an OLED Cyan design language. The full specification lives in [`design/DESIGN.md`](./design/DESIGN.md).
-
-## Load Locally
-
-1. Clone this repository.
-2. Open `chrome://extensions`.
-3. Enable **Developer mode**.
-4. Click **Load unpacked** and select the `sortify` folder.
+- Sorts Instagram and TikTok content by views, likes, comments, shares, saves, or date
+- Exports sorted results to CSV and XLSX
+- Adds in-page download and action buttons on supported content
+- Runs entirely in your browser — no account, no server, no telemetry
 
 ## Repository Layout
 
-| Path                   | Contents                                           |
-| ---------------------- | -------------------------------------------------- |
-| `manifest.json`        | MV3 entry point and permissions                    |
-| `background.js`        | Service worker for message routing and local state |
-| `popup.html`           | Extension popup                                    |
-| `popup_scripts/`       | Popup behavior and UI logic                        |
-| `popup_styles/`        | Popup CSS and ReelRadar design tokens              |
-| `Instagram/`           | Instagram content script and page-world script     |
-| `Tiktok/`              | TikTok content script and page-world script        |
-| `design/`              | Design system specification                        |
-| `plan/`                | Transformation plan and project history            |
-| `Animate/animate.css`  | Vendored Animate.css                               |
-| `lib/xlsx.full.min.js` | Vendored SheetJS build                             |
+| Path                          | Contents                                           |
+| ----------------------------- | -------------------------------------------------- |
+| `extension/manifest.json`     | MV3 entry point and permissions                    |
+| `extension/background.js`     | Service worker for message routing and local state |
+| `extension/popup.html`        | Extension popup                                    |
+| `extension/popup_scripts/`    | Popup behavior and UI logic                        |
+| `extension/popup_styles/`     | Popup CSS and design tokens                        |
+| `extension/Instagram/`        | Instagram content script and page-world script     |
+| `extension/Tiktok/`           | TikTok content script and page-world script        |
+| `extension/Animate/`          | Vendored Animate.css                               |
+| `extension/lib/`              | Vendored SheetJS build                             |
+| `landing/`                    | Marketing landing page (React + Vite)              |
 
 ## Permissions
 
@@ -52,11 +53,7 @@ ReelRadar uses an OLED Cyan design language. The full specification lives in [`d
 
 ## DOM Fragility Warning
 
-ReelRadar depends on Instagram and TikTok DOM structure, route formats, `data-e2e` hooks, and embedded data blobs. Those selectors are preserved intentionally. Expect breakage when either platform changes markup, attributes, or response shapes.
-
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+ReelRadar depends on Instagram and TikTok DOM structure, route formats, `data-e2e` hooks, and embedded data blobs. Expect breakage when either platform changes markup, attributes, or response shapes. Check [Issues](https://github.com/abdullah-elbedwehy/reelradar/issues) for the latest status.
 
 ## Third-Party Software
 

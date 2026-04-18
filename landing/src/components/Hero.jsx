@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const GITHUB_URL = 'https://github.com/abdullah-elbedwehy/reelradar'
+const DOWNLOAD_URL = 'https://github.com/abdullah-elbedwehy/reelradar/releases/latest/download/reelradar-extension-v9.53.zip'
 
 /* ─────────────────────────────────────────────────────────────
    Animated extension mock
@@ -411,7 +412,9 @@ export default function Hero() {
           {/* CTAs */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2rem' }}>
             <a
-              href="#install"
+              href={DOWNLOAD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={primaryBtn}
               onMouseEnter={e => { e.currentTarget.style.filter = 'brightness(1.1)' }}
               onMouseLeave={e => { e.currentTarget.style.filter = 'none' }}
@@ -419,7 +422,7 @@ export default function Hero() {
               onMouseUp={e => { e.currentTarget.style.transform = 'scale(1)' }}
             >
               <ArrowDownIcon />
-              Install Free
+              Download Free
             </a>
             <a
               href={GITHUB_URL}
